@@ -35,3 +35,10 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+.idea
+
+infra/modules/dataproc/.terraform.lock.hcl
+infra/modules/vpc/.terraform.lock.hcl
+infra/.terraform.lock.hcl
+infra/bootstrap/.terraform.lock.hcl
+
