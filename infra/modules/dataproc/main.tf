@@ -13,7 +13,7 @@ resource "google_service_account" "default" {
 resource "google_project_iam_member" "dataproc-service-account" {
   for_each = toset([
     "roles/dataproc.worker",
-    "roles/storage.objectAdmin",
+    "roles/storage.admin",
   ])
   project = var.project_name
   role    = each.key
