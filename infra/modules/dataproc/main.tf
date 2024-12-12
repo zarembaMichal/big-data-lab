@@ -39,6 +39,9 @@ resource "google_dataproc_cluster" "dataproc-cluster" {
     software_config {
       image_version       = var.image_version
       optional_components = ["JUPYTER"]
+      override_properties = {
+        "dataproc:jupyter.notebook.gcs.dir" : "gs://${var.project_name}-notebook-data/data"
+      }
     }
     gce_cluster_config {
       subnetwork       = var.subnet

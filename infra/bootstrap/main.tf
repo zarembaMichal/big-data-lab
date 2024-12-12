@@ -87,3 +87,19 @@ resource "google_storage_bucket" "state-bucket" {
   #checkov:skip=CKV_GCP_78: "Ensure Cloud storage has versioning enabled"
   public_access_prevention = "enforced"
 }
+
+resource "google_storage_bucket" "notebook-bucket" {
+  project                     = google_project.tbd_project.project_id
+  name                        = "${local.project}-notebook-data"
+  location                    = var.region
+  uniform_bucket_level_access = true
+  force_destroy               = true
+  lifecycle {
+    prevent_destroy = true
+  }
+
+  #checkov:skip=CKV_GCP_62: "Bucket should log access"
+  #checkov:skip=CKV_GCP_29: "Ensure that Cloud Storage buckets have uniform bucket-level access enabled"
+  #checkov:skip=CKV_GCP_78: "Ensure Cloud storage has versioning enabled"
+  public_access_prevention = "enforced"
+}
