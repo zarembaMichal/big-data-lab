@@ -56,7 +56,7 @@ resource "google_project_iam_member" "editor-supervisors" {
     "user:sitekwb@gmail.com"
   ])
   project = google_project.tbd_project.project_id
-  role    = "roles/owner"
+  role    = "roles/editor"
   member  = each.value
 }
 
