@@ -15,14 +15,28 @@
     - USER_NAME - set to your GitHub username
 6. Run both Colab notebooks.
 7. Go to GCP Console > Dataproc > Workbench > Open JupyterLab.
-8. Authenticate to GitHub using:
-```
-gh auth login
-```
+8. Authenticate to GitHub:
+    - Open terminal in JupyterLab
+    - Run the following commands:
+    ```
+    apt-get update
+    apt-get install gh
+    gh auth login
+    ```
+    - Select options: GitHub.com > HTTPS > Y > Login with web browser > Enter > Open webpage `https://github.com/login/device` in a new tab > Login to GitHub > Continue > Copy code from terminal > Paste code in GitHub > Authorize > Return to terminal > Enter.
+    - You should see the following message:
+    ```
+    ✓ Authentication complete. Press Enter to continue...
+
+    gh config set -h github.com git_protocol https
+    ✓ Configured git protocol
+    ✓ Logged in as <your_username>
+    ```
 9. Fork the repo `https://github.com/biodatageeks/ds-notebooks.git`
 10. Clone the repo:
 ```
-USER_NAME=myGitHubUsername
+cd
+USER_NAME=<your_github_username>
 git clone https://github.com/$USER_NAME/ds-notebooks.git
 ```
-11. Run the session_1 notebooks.
+11. Run the `/root/ds-notebooks/session_1/` notebooks (on `LocalDisk` mount, not on `GCS` mount). (Kernel: Python 3)
